@@ -15,8 +15,7 @@ vector<string> Validator::split_data(const string& str, const char& delim) const
     istringstream strs(str);
     vector<string> fields;
     string field;
-    while (!strs.eof()) {
-        getline(strs, field, delim);
+    while (getline(strs, field, delim)) {
         fields.push_back(field);
     }
     return fields;

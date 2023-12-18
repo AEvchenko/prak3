@@ -4,8 +4,11 @@ void TempMeasurement::set_measurement(const string& line) {
     if (validator.is_valid(line))
     {
         Income obj = parseIncome(line);
-        if (find(this->data.begin(), this->data.end(), obj) == this->data.end())
+        if (find(this->data.begin(), this->data.end(), obj) == this->data.end()) {
+            if (this->data.size())
+                obj.pos = this->data.back().pos + 1;
             this->data.push_back(obj);
+        }
     }
 }
 
@@ -35,8 +38,6 @@ Income TempMeasurement::parseIncome(const string& line) const{
     obj.date.day = date[2];
     obj.city = fields[1];
     obj.temperature = stod(fields[2]);
-    if (this->data.size())
-        obj.pos = this->data.back().pos + 1;
     return obj;
 }
 
