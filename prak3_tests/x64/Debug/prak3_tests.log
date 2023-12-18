@@ -1,0 +1,12 @@
+﻿  prak3_tests.cpp
+D:\Users\winte\source\repos\prak3\prak3\TempMeasurement.cpp(70,29): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file '/prak3_tests.cpp')
+  
+D:\Users\winte\source\repos\prak3\prak3_tests\prak3_tests.cpp(82,26): warning C4267: 'argument': conversion from 'size_t' to 'const int', possible loss of data
+  (compiling source file '/prak3_tests.cpp')
+  
+D:\Users\winte\source\repos\prak3\prak3_tests\prak3_tests.cpp(94,26): warning C4267: 'argument': conversion from 'size_t' to 'const int', possible loss of data
+  (compiling source file '/prak3_tests.cpp')
+  
+     Creating library D:\Users\winte\source\repos\prak3\x64\Debug\prak3_tests.lib and object D:\Users\winte\source\repos\prak3\x64\Debug\prak3_tests.exp
+  prak3_tests.vcxproj -> D:\Users\winte\source\repos\prak3\x64\Debug\prak3_tests.dll
