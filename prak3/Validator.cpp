@@ -57,14 +57,8 @@ bool Validator::is_valid_date(const string& str) const {
 
 bool Validator::is_valid_city(const string& str) const {
     char key = str[0];
-    multimap <char, string> foundElements;
-    copy_if(valids.cities.begin(), valids.cities.end(), inserter(foundElements, foundElements.begin()), [key](auto& city) {return city.first == key; });
-    for (auto i : foundElements) {
-        if (i.second == str) {
-            return true;
-        }
-    }
-    return false;
+    auto foundElements = valids.cities.equal_range(key);
+    return find_if(foundElements.first, foundElements.second, [str](auto& val) {return val.second == str; }) != foundElements.second;
 }
 
 bool Validator::is_valid(const string& str) const {

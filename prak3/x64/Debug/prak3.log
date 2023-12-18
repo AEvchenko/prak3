@@ -1,3 +1,2 @@
-﻿  TempMeasurement.cpp
-D:\Users\winte\source\repos\prak3\prak3\TempMeasurement.cpp(70,29): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+﻿  Validator.cpp
   prak3.vcxproj -> D:\Users\winte\source\repos\prak3\x64\Debug\prak3.exe
