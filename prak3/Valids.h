@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 
+using namespace std;
+
 struct Valids {
     const int year[2] = { 1800, 2024 };
     const int month[2] = { 1, 12 };
