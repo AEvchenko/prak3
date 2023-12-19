@@ -56,9 +56,7 @@ bool Validator::is_valid_date(const string& str) const {
 }
 
 bool Validator::is_valid_city(const string& str) const {
-    char key = str[0];
-    auto foundElements = valids.cities.equal_range(key);
-    return find_if(foundElements.first, foundElements.second, [str](auto& val) {return val.second == str; }) != foundElements.second;
+    return find(valids.cities.begin(), valids.cities.end(), str) != valids.cities.end();
 }
 
 bool Validator::is_valid(const string& str) const {
