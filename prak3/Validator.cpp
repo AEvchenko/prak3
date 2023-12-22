@@ -3,7 +3,7 @@
 bool Validator::is_valid_line(const string& str) const {
     string exp = "[1-2]\\d{3}\\.\\d{2}\\.\\d{2}"
         " (([A-Z][a-z]{2,})[- ]?([a-z]{2,}-[A-Z][a-z]{2,})?([A-Z][a-z]{2,})?)"
-        " (\\d{1,2}(\\.\\d{1,2})?$)?(\\-[1-9][0-9]{0,1}(\\.\\d{1,2})?$)?";
+        " (\\d{1,2}(\\.\\d{1,2})?$)|(\\-[1-9][0-9]{0,1}(\\.\\d{1,2})?$)";
     regex regular(exp);
     cmatch res;
     if (regex_match(str.c_str(), res, regular))
