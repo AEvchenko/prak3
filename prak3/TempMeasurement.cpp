@@ -32,12 +32,12 @@ vector<string> TempMeasurement::readLinesFromFile(istream& file){
 Income TempMeasurement::parseIncome(const string& line) const{
     Income obj;
     vector<string> fields = validator.split_data(line, ' ');
-    vector<string> date = validator.split_data(fields[0], '.');
-    obj.date.year = date[0];
-    obj.date.month = date[1];
-    obj.date.day = date[2];
-    obj.city = fields[1];
-    obj.temperature = stod(fields[2]);
+    vector<string> date = validator.split_data(fields.at(0), '.');
+    obj.date.year = date.at(0);
+    obj.date.month = date.at(1);
+    obj.date.day = date.at(2);
+    obj.city = fields.at(1);
+    obj.temperature = stod(fields.at(2));
     return obj;
 }
 
@@ -59,7 +59,7 @@ void TempMeasurement::set_measurements(istream& file){
     set_positions();
 }
 
-void TempMeasurement::adjust_positions(const int& pos) {
+void TempMeasurement::adjust_positions(const int& pos) noexcept {
     for (auto i = this->data.begin() + pos; i != this->data.end(); i++)
         i->pos--;
 }
@@ -68,26 +68,34 @@ void TempMeasurement::set_positions() {
     const size_t size = this->data.size();
     for (size_t i = 0; i < size; i++)
     {
-        this->data[i].pos = i;
+        this->data.at(i).pos = i;
     }
 }
 
-void TempMeasurement::remove_measure(const int& pos) {
+void TempMeasurement::remove_measure(const int& pos) noexcept {
     const auto size = this->data.size();
     if (pos > size || !size)
         return;
-    this->data.erase(data.begin() + pos);
+    this->data.erase(this->data.begin() + pos);
     adjust_positions(pos);
 }
 
-void TempMeasurement::remove_measurements() {
+void TempMeasurement::remove_measurements() noexcept {
     this->data.clear();
 }
 
 int TempMeasurement::get_pos(const string& line) const {
     if (validator.is_valid(line)){
         Income obj = parseIncome(line);
-        return find(this->data.begin(), this->data.end(), obj)->pos;
+        auto it = find(this->data.begin(), this->data.end(), obj);
+        if (it != this->data.end()) {
+            return it->pos;
+        }
+        else {
+            // Обработка случая, когда объект не найден.
+            return -1;  // или другое значение, которое подходит для вашей логики.
+        }
+
     }
     return -1;
 }
@@ -96,7 +104,7 @@ void TempMeasurement::printIncome(const int& pos, ostream& out) const {
     const auto size = this->data.size();
     if (pos > size || !size)
         return;
-    const Income obj = this->data[pos];
+    const Income obj = this->data.at(pos);
 
     out << " Date: " << obj.date.year << '.' << obj.date.month << '.' << obj.date.day << '\n';
     out << " City: " << obj.city << '\n';

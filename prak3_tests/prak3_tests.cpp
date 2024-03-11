@@ -40,7 +40,7 @@ namespace prak3tests
 			tmeasure.set_measurement(test_string);
 			tmeasure.printIncomes(tests_string_stream);
 
-			Assert::AreEqual(expected_strings[0], tests_string_stream.str());
+			Assert::AreEqual(expected_strings.at(0), tests_string_stream.str());
 			tmeasure.remove_measurements();
 			tests_string_stream.str(string());
 		}
@@ -55,12 +55,12 @@ namespace prak3tests
 		}
 		TEST_METHOD(removeMeasurement)
 		{
-			tmeasure.set_measurement(valid_test_strings[0]);
-			tmeasure.set_measurement(valid_test_strings[1]);
-			tmeasure.set_measurement(valid_test_strings[2]);
+			tmeasure.set_measurement(valid_test_strings.at(0));
+			tmeasure.set_measurement(valid_test_strings.at(1));
+			tmeasure.set_measurement(valid_test_strings.at(2));
 			tmeasure.remove_measure(1);
 			tmeasure.printIncomes(tests_string_stream);
-			Assert::AreEqual(expected_strings[0] + expected_strings[2], tests_string_stream.str());
+			Assert::AreEqual(expected_strings.at(0) + expected_strings.at(2), tests_string_stream.str());
 			tests_string_stream.str(string());
 		}
 		TEST_METHOD(validMeasurement)
@@ -77,10 +77,10 @@ namespace prak3tests
 		{
 			for (auto i : valid_test_strings)
 				tmeasure.set_measurement(i);
-			size_t length = valid_test_strings.size();
+			const size_t length = valid_test_strings.size();
 			for (size_t i = 0; i < length; i++) {
 				tmeasure.printIncome(i, tests_string_stream);
-				Assert::AreEqual(expected_strings[i], tests_string_stream.str());
+				Assert::AreEqual(expected_strings.at(i), tests_string_stream.str());
 				tests_string_stream.str(string());
 			}
 			tmeasure.remove_measurements();
@@ -89,7 +89,7 @@ namespace prak3tests
 		{
 			for (auto i : invalid_test_strings)
 				tmeasure.set_measurement(i);
-			size_t length = invalid_test_strings.size();
+			const size_t length = invalid_test_strings.size();
 			for (size_t i = 0; i < length; i++) {
 				tmeasure.printIncome(i, tests_string_stream);
 				Assert::AreEqual(string(), tests_string_stream.str());
@@ -118,14 +118,14 @@ namespace prak3tests
 		}
 		TEST_METHOD(traceDuplicates)
 		{
-			tmeasure.set_measurement(valid_test_strings[0]);
-			tmeasure.set_measurement(valid_test_strings[1]);
-			tmeasure.set_measurement(valid_test_strings[2]);
-			tmeasure.set_measurement(valid_test_strings[0]);
-			tmeasure.set_measurement(valid_test_strings[1]);
-			tmeasure.set_measurement(valid_test_strings[0]);
+			tmeasure.set_measurement(valid_test_strings.at(0));
+			tmeasure.set_measurement(valid_test_strings.at(1));
+			tmeasure.set_measurement(valid_test_strings.at(2));
+			tmeasure.set_measurement(valid_test_strings.at(0));
+			tmeasure.set_measurement(valid_test_strings.at(1));
+			tmeasure.set_measurement(valid_test_strings.at(0));
 			tmeasure.printIncomes(tests_string_stream);
-			Assert::AreEqual(expected_strings[0] + expected_strings[1] + expected_strings[2], tests_string_stream.str());
+			Assert::AreEqual(expected_strings.at(0) + expected_strings.at(1) + expected_strings.at(2), tests_string_stream.str());
 			tmeasure.remove_measurements();
 			tests_string_stream.str(string());
 		}

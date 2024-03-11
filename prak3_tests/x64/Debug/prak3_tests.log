@@ -1,12 +1,15 @@
 ﻿  prak3_tests.cpp
-D:\Users\winte\source\repos\prak3\prak3\TempMeasurement.cpp(71,29): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-  (compiling source file '/prak3_tests.cpp')
+D:\Progi\OP\prak3\prak3\prak3\TempMeasurement.cpp(67,23): error C2382: TempMeasurement::set_positions: переопределение; разные спецификации исключений
+  (компиляция исходного файла "/prak3_tests.cpp")
+  D:\Progi\OP\prak3\prak3\prak3\TempMeasurement.h(22,10):
+   см. объявление "TempMeasurement::set_positions"
   
-D:\Users\winte\source\repos\prak3\prak3_tests\prak3_tests.cpp(82,26): warning C4267: 'argument': conversion from 'size_t' to 'const int', possible loss of data
-  (compiling source file '/prak3_tests.cpp')
+D:\Progi\OP\prak3\prak3\prak3\TempMeasurement.cpp(71,32): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "/prak3_tests.cpp")
   
-D:\Users\winte\source\repos\prak3\prak3_tests\prak3_tests.cpp(94,26): warning C4267: 'argument': conversion from 'size_t' to 'const int', possible loss of data
-  (compiling source file '/prak3_tests.cpp')
+D:\Progi\OP\prak3\prak3\prak3_tests\prak3_tests.cpp(82,26): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+  (компиляция исходного файла "/prak3_tests.cpp")
   
-     Creating library D:\Users\winte\source\repos\prak3\x64\Debug\prak3_tests.lib and object D:\Users\winte\source\repos\prak3\x64\Debug\prak3_tests.exp
-  prak3_tests.vcxproj -> D:\Users\winte\source\repos\prak3\x64\Debug\prak3_tests.dll
+D:\Progi\OP\prak3\prak3\prak3_tests\prak3_tests.cpp(94,26): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+  (компиляция исходного файла "/prak3_tests.cpp")
+  

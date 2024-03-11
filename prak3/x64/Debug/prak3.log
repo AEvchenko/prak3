@@ -1,5 +1,6 @@
 ﻿  TempMeasurement.cpp
-D:\Users\winte\source\repos\prak3\prak3\TempMeasurement.cpp(71,29): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-  Validator.cpp
-  Generating Code...
-  prak3.vcxproj -> D:\Users\winte\source\repos\prak3\x64\Debug\prak3.exe
+D:\Progi\OP\prak3\prak3\prak3\TempMeasurement.cpp(67,23): error C2382: TempMeasurement::set_positions: переопределение; разные спецификации исключений
+  D:\Progi\OP\prak3\prak3\prak3\TempMeasurement.h(22,10):
+   см. объявление "TempMeasurement::set_positions"
+  
+D:\Progi\OP\prak3\prak3\prak3\TempMeasurement.cpp(71,32): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных

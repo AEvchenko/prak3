@@ -14,7 +14,7 @@ struct Income {
     double temperature = 0;
     int pos = 0;
 
-    bool operator == (const Income& obj) const {
+    bool operator == (const Income& obj) const noexcept {
         return this->date.day == obj.date.day &&
             this->date.month == obj.date.month &&
             this->date.year == obj.date.year &&

@@ -11,8 +11,8 @@ private:
     Valids valids;
     bool is_valid_line(const string& str) const;
     void adjust_data(vector<string>& data) const;
-    bool in_range(const int& value, const int& low, const int& high) const;
-    bool is_leap_year(const int& year) const;
+    bool in_range(const int& value, const int& low, const int& high) const noexcept;
+    bool is_leap_year(const int& year) const noexcept;
     bool is_valid_date(const string& str) const;
     bool is_valid_city(const string& str) const;
 
